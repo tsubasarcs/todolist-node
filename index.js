@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
@@ -68,6 +68,4 @@ async function deleteItem(req, res) {
   return res.send("Deleted!");
 }
 
-app.listen(port, () =>
-  console.log(`Example app listening at http://localhost:${port}`)
-);
+app.listen(port, () => console.log(`app running on port ${port}`));
