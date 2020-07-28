@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = "***"
+}
+
+model Todo {
+  id         Int       @default(autoincrement()) @id
+  title      String?
+  finished   Boolean   @default(false)
+  createdAt  DateTime? @map(name: "created_at")
+  updatedAt  DateTime? @map(name: "updated_at")
+
+  @@map(name: "todos")
+}
